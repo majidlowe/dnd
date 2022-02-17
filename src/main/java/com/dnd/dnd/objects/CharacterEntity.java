@@ -1,6 +1,8 @@
 package com.dnd.dnd.objects;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
@@ -11,7 +13,9 @@ import javax.persistence.Table;
 @Table(name="characters")
 @Getter
 @Setter
-public class Character {
+@AllArgsConstructor
+@NoArgsConstructor
+public class CharacterEntity {
 
   @Id
   private long id;

@@ -1,5 +1,6 @@
 package com.dnd.dnd.domain;
 
+import com.dnd.dnd.objects.CharacterEntity;
 import com.dnd.dnd.repository.CharacterRepo;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ public class CharacterService {
     this.characterRepo = characterRepo;
   }
 
-  public List<Character> getAllCharacters(){
-    return(List<Character>) characterRepo.findAll();
+  public List<CharacterEntity> getAllCharacters(){
+    return characterRepo.findAll();
   }
 }
