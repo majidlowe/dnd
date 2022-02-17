@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRES_USER: dnd_dev
       POSTGRES_PASSWORD: dnd_dev
-      POSTGRES_DB: dnd
+      POSTGRES_DB: dnd_dev
     ports:
       - "5432:5432"
 #    volumes:
