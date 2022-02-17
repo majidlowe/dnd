@@ -1,0 +1,78 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.3'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.dnd'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-actuator:2.6.3'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.6.3'
+    implementation 'org.springframework.boot:spring-boot-actuator:2.6.3'
+    implementation 'org.springframework.boot:spring-boot-starter-validation:2.6.3'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.6.3'
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools:2.6.3'
+    runtimeOnly 'com.h2database:h2:2.1.210'
+    runtimeOnly 'org.postgresql:postgresql:42.3.2'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.6.3'
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task installFrontend(type: Exec) {
+    inputs.file(file("frontend/yarn.lock"))
+    inputs.file(file("frontend/package.json"))
+    outputs.dir(file("frontend/node_modules"))
+    commandLine("yarn", "--cwd", "frontend", "install")
+}
+
+task buildFrontend(type: Exec) {
+    dependsOn("installFrontend")
+    inputs.dir(file("frontend"))
+    outputs.dir(file("frontend/build"))
+    commandLine("yarn", "--cwd", "frontend", "build")
+}
+
+task copyFrontend(type: Sync) {
+    dependsOn("buildFrontend")
+    from(file("./frontend/build"))
+    into(file("./src/main/resources/static"))
+    doLast {
+        println("copied built frontend to static resources")
+    }
+}
+
+task cleanFrontend(type: Delete) {
+    delete(file("./frontend/build"))
+    delete(file("./src/main/resources/static"))
+}
+
+bootJar {
+    dependsOn(copyFrontend)
+}
+
+bootRun {
+    dependsOn(copyFrontend)
+}
+
+clean {
+    dependsOn(cleanFrontend)
+}

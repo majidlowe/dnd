@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  postgres-db:
+    container_name: dnd_postgres
+    image: "postgres" # use latest official postgres version
+    restart: always
+    environment:
+      POSTGRES_USER: dnd_dev
+      POSTGRES_PASSWORD: dnd_dev
+      POSTGRES_DB: dnd
+    ports:
+      - "5432:5432"
+#    volumes:
+#      - ./postgres-db/data:/var/lib/postgresql/data

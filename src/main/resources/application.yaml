@@ -1,0 +1,13 @@
+spring:
+    application:
+        name: dnd
+    datasource:
+        url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB:dnd_dev}
+        username: ${POSTGRES_USERNAME:dnd_dev}
+        password: ${POSTGRES_PASSWORD:dnd_dev}
+        driver-class-name: org.postgresql.Driver
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    flyway:
+        locations:
+            - classpath:db/migration
