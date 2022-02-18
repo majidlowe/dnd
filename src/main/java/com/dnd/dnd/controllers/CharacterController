@@ -15,7 +15,7 @@ public class CharacterController {
     this.characterService = characterService;
   }
 
-  @GetMapping("")
+  @GetMapping("/")
   public Iterable<CharacterEntity> getCharacterList(){
     return characterService.getAllCharacters();
   }

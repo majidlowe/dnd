@@ -14,7 +14,7 @@ public class CharacterService {
     this.characterRepo = characterRepo;
   }
 
-  public List<CharacterEntity> getAllCharacters(){
+  public List<CharacterEntity> getAllCharacters() {
     return characterRepo.findAll();
   }
 }
