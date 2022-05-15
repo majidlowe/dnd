@@ -4,17 +4,15 @@ import App from '../App';
 import {TypeCharacter} from "../Types/TypeCharacter";
 
 
-
-
 const testCharacters: TypeCharacter[] = [
-  {name: 'Icing Death', race: 'unknown', hitPoints:10},
-  {name: 'Delina', race: 'human', hitPoints:10},
-  {name: 'Gretchen Titchwillow', race: 'human', hitPoints:10}];
+  {name: 'Icing Death', race: 'unknown', hitPoints: 10},
+  {name: 'Delina', race: 'human', hitPoints: 10},
+  {name: 'Gretchen Titchwillow', race: 'human', hitPoints: 10}];
 
 
 describe('character view', () => {
 
-  test('user should see characters on load',() => {
+  test('user should see characters on load', () => {
 
 
     render(<App

@@ -33,7 +33,7 @@ class CharacterControllerTest {
   CharacterService characterService;
 
   @Test
-  void getCharacterList_shouldReturn_allCharacters() throws Exception{
+  void getCharacterList_shouldReturn_allCharacters() throws Exception {
     CharacterEntity testCharacterOne = new CharacterEntity(1, "Majid", "human", 25);
     CharacterEntity testCharacterTwo = new CharacterEntity(2, "Lowe", "robot", 12);
 

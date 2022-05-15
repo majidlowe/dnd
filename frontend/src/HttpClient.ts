@@ -1,3 +1,3 @@
 import axios from 'axios';
 
-export const httpClient = axios.create({ headers: { Accept: 'application/json' } });
+export const httpClient = axios.create({headers: {Accept: 'application/json'}});

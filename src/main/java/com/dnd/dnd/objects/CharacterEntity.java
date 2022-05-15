@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="characters")
+@Table(name = "characters")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -18,11 +18,10 @@ import javax.persistence.Table;
 public class CharacterEntity {
 
   @Id
-  private long id;
+  private Long id;
   private String name;
   private String race;
   private Integer hitPoints;
-
 
 
 }

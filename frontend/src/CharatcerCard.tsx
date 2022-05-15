@@ -18,7 +18,7 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
                                                               hitPoints
                                                             }) => {
   return (
-    <Card variant="outlined" sx={{maxWidth: 800 }}>
+    <Card variant="outlined" sx={{maxWidth: 800}}>
       <CardContent>
         <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
           CHARACTER CARD

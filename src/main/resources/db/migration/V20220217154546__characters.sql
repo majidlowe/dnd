@@ -4,4 +4,4 @@ CREATE TABLE if not exists characters
     name      VARCHAR(255),
     race      VARCHAR(255),
     hitPoints INT
-)
+    )
